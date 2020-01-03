@@ -16,3 +16,8 @@ func (stack *Stack) Pop() interface{} {
 	stack.stack = stack.stack[0 : len(stack.stack)-1]
 	return val
 }
+
+// IsEmpty return true when stack is empty
+func (stack *Stack) IsEmpty() bool {
+	return len(stack.stack) == 0
+}

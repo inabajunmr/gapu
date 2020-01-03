@@ -18,9 +18,25 @@ func TestStackSingleValue(t *testing.T) {
 
 func TestStackMultipleValue(t *testing.T) {
 	s := Stack{}
+	if !s.IsEmpty() {
+		t.Fatalf("failed test for IsEmpty()")
+	}
+
 	s.Push(1)
+	if s.IsEmpty() {
+		t.Fatalf("failed test for IsEmpty()")
+	}
+
 	s.Push(2)
+	if s.IsEmpty() {
+		t.Fatalf("failed test for IsEmpty()")
+	}
+
 	s.Push(3)
+	if s.IsEmpty() {
+		t.Fatalf("failed test for IsEmpty()")
+	}
+
 	val, ok := s.Pop().(int)
 	if !ok {
 		t.Fatalf("failed test for pop()")
@@ -41,6 +57,10 @@ func TestStackMultipleValue(t *testing.T) {
 	}
 	if val != 1 {
 		t.Fatal("failed test")
+	}
+
+	if !s.IsEmpty() {
+		t.Fatalf("failed test for IsEmpty()")
 	}
 }
 
